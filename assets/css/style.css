@@ -1,0 +1,341 @@
+/* ============================================================
+   THE DEAD MEDIA VAULT — shared stylesheet
+   Worn, analog, human. No gradients on wordmarks, no SaaS shine.
+   Per-brand accents switch via body class:
+   .brand-gilt / .brand-dread / .brand-source / .brand-wax / home (vault)
+   ============================================================ */
+
+:root {
+  --ink: #14110d;
+  --bone: #e8dcc3;
+  --newsprint: #2a2118;
+  --brass: #b08d3e;
+  --brass-hi: #d9b36a;
+  --blood: #a8231f;
+  --amber: #d9a441;
+  --botanical: #1e3a2b;
+  --cream: #f3ead3;
+  --parchment: #efe3c8;
+  --sepia-ink: #2a2118;
+  --wax-black: #0e0c0a;
+  --serif: "Cormorant Garamond", Georgia, "Palatino Linotype", "Times New Roman", serif;
+  --sans: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--sans);
+  background: var(--ink);
+  color: var(--bone);
+  line-height: 1.65;
+  font-size: 17px;
+  min-height: 100vh;
+}
+
+/* ---- film grain over everything: the analog tax ---- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: .055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- per-brand surfaces ---- */
+body.brand-gilt   { background: var(--cream); color: var(--ink); }
+body.brand-source { background: var(--parchment); color: var(--sepia-ink); }
+body.brand-wax    { background: var(--wax-black); color: var(--bone); }
+/* dread + home keep the ink default */
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 22px; }
+
+/* ---- top bar ---- */
+.topbar {
+  border-bottom: 1px solid currentColor;
+  opacity: 1;
+}
+.topbar .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; padding-bottom: 14px;
+}
+.wordmark {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+}
+.wordmark small {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: .34em;
+  opacity: .65;
+}
+.nav a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-left: 22px;
+  opacity: .8;
+}
+.nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+
+/* ---- hero ---- */
+.hero {
+  padding: 72px 0 54px;
+  text-align: center;
+  border-bottom: 3px double currentColor;
+  margin-bottom: 54px;
+}
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(44px, 8vw, 88px);
+  line-height: 1.02;
+  letter-spacing: .02em;
+  margin-bottom: 20px;
+}
+.hero .lede {
+  font-family: var(--serif);
+  font-size: clamp(19px, 2.6vw, 24px);
+  font-style: italic;
+  max-width: 640px;
+  margin: 0 auto;
+  opacity: .88;
+  line-height: 1.5;
+}
+
+/* ---- stamp badges ---- */
+.stamp {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  padding: 6px 12px 5px 15px;
+  transform: rotate(-2deg);
+  margin-bottom: 16px;
+  opacity: .9;
+}
+.stamp.live   { color: var(--brass-hi); }
+body.brand-gilt .stamp.live { color: #7a5f22; }
+.stamp.soon   { opacity: .55; }
+
+/* ---- brand cards (home) ---- */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin: 0 0 64px;
+}
+.brand-card {
+  border: 1px solid currentColor;
+  padding: 30px 26px;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  position: relative;
+  transition: transform .18s ease;
+  background: rgba(255,255,255,.015);
+}
+.brand-card:hover { transform: translateY(-4px); }
+.brand-card h2 {
+  font-family: var(--serif);
+  font-size: 30px;
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+.brand-card .sub {
+  font-size: 11px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-bottom: 14px;
+}
+.brand-card p { font-size: 15px; opacity: .85; margin-bottom: 16px; }
+.brand-card .status {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.status.open { color: var(--brass-hi); }
+body.brand-gilt .status.open { color: #7a5f22; }
+.status.soon { opacity: .5; }
+
+/* ---- sections ---- */
+.section { margin-bottom: 64px; }
+.section h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 4.5vw, 44px);
+  margin-bottom: 8px;
+  letter-spacing: .01em;
+}
+.section .kicker {
+  font-size: 12px;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  opacity: .6;
+  margin-bottom: 20px;
+}
+.prose { max-width: 680px; }
+.prose p { margin-bottom: 1.1em; }
+.prose p strong { font-weight: 700; }
+
+/* ---- product panel ---- */
+.product {
+  border: 3px double currentColor;
+  padding: 36px 32px;
+  margin-bottom: 40px;
+  background: rgba(255,255,255,.02);
+}
+body.brand-gilt .product { background: rgba(30,58,43,.05); }
+.product h3 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 38px);
+  margin-bottom: 4px;
+}
+.product .meta {
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 16px;
+}
+.product p { max-width: 640px; margin-bottom: 1em; }
+.includes { margin: 18px 0 22px 0; padding-left: 0; list-style: none; max-width: 640px; }
+.includes li {
+  padding: 7px 0 7px 26px;
+  position: relative;
+  font-size: 15.5px;
+  border-bottom: 1px dotted currentColor;
+}
+.includes li::before {
+  content: "❧";
+  position: absolute;
+  left: 2px;
+  opacity: .7;
+}
+
+/* ---- buttons ---- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: .06em;
+  text-decoration: none;
+  padding: 14px 26px;
+  border: 2px solid currentColor;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.btn:hover { background: var(--brass); border-color: var(--brass); color: #14110d; }
+.btn.solid { background: var(--brass); border-color: var(--brass); color: #14110d; }
+.btn.solid:hover { background: var(--brass-hi); border-color: var(--brass-hi); }
+body.brand-dread .btn.solid { background: var(--blood); border-color: var(--blood); color: var(--bone); }
+body.brand-dread .btn.solid:hover { background: #c22f2a; border-color: #c22f2a; }
+body.brand-dread .btn:hover { background: var(--blood); border-color: var(--blood); color: var(--bone); }
+body.brand-wax .btn.solid { background: var(--amber); border-color: var(--amber); color: #14110d; }
+body.brand-wax .btn.solid:hover { background: #eab95c; border-color: #eab95c; }
+.btn .price { font-weight: 400; opacity: .75; font-size: 13px; display: block; letter-spacing: .04em; }
+.btn-note { font-size: 13px; opacity: .6; margin-top: 10px; }
+
+/* ---- gallery ---- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 26px 0 10px;
+}
+.gallery figure {
+  border: 1px solid currentColor;
+  padding: 8px;
+  background: rgba(255,255,255,.02);
+  margin: 0;
+}
+.gallery img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(.08) contrast(1.02);
+}
+.gallery figcaption {
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  opacity: .55;
+  padding: 8px 2px 2px;
+  text-align: center;
+}
+
+/* ---- honesty strip ---- */
+.honesty {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding: 26px 0;
+  margin-bottom: 64px;
+  font-family: var(--serif);
+  font-size: 19px;
+  font-style: italic;
+  text-align: center;
+  opacity: .9;
+}
+
+/* ---- how it works ---- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 26px; }
+.step .n {
+  font-family: var(--serif);
+  font-size: 44px;
+  opacity: .35;
+  line-height: 1;
+}
+.step h3 { font-family: var(--serif); font-size: 22px; margin: 8px 0 6px; }
+.step p { font-size: 15px; opacity: .85; }
+
+/* ---- footer ---- */
+footer {
+  border-top: 3px double currentColor;
+  margin-top: 40px;
+  padding: 34px 0 46px;
+  font-size: 14px;
+}
+footer .wrap { display: flex; flex-wrap: wrap; gap: 26px; justify-content: space-between; align-items: flex-start; }
+footer nav a { color: inherit; text-decoration: none; margin-right: 18px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+footer nav a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 4px; }
+footer .colophon { opacity: .6; font-style: italic; font-family: var(--serif); max-width: 420px; }
+
+/* ---- privacy ---- */
+.privacy h2 { font-family: var(--serif); font-size: 30px; margin: 26px 0 10px; }
+.privacy p, .privacy li { max-width: 680px; margin-bottom: 1em; font-size: 16px; }
+.privacy ul { padding-left: 22px; }
+
+@media (max-width: 640px) {
+  .nav a { margin-left: 14px; }
+  .product { padding: 26px 20px; }
+  .gallery img { height: 200px; }
+}

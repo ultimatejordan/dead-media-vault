@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+     xmlns:podcast="https://podcastindex.org/namespace/1.0">
+  <channel>
+    <title>Vault Radio</title>
+    <link>https://ultimatejordan.github.io/dead-media-vault/podcast</link>
+    <language>en-us</language>
+    <description>The stories behind public-domain art. A deadpan archivist digs up the wild histories of the illustrations, maps, and manuscripts everyone forgot — Weird Tales cover artists, botanical explorers, and globes that say 'here be dragons.' All public domain, all free, all true. A Dead Media Vault production.</description>
+    <itunes:author>Dead Media Vault</itunes:author>
+    <itunes:summary>The stories behind public-domain art. A deadpan archivist digs up the wild histories of the illustrations, maps, and manuscripts everyone forgot — Weird Tales cover artists, botanical explorers, and globes that say 'here be dragons.' All public domain, all free, all true. A Dead Media Vault production.</itunes:summary>
+    <itunes:owner>
+      <itunes:name>Dead Media Vault</itunes:name>
+      <itunes:email>tacatshi@gmail.com</itunes:email>
+    </itunes:owner>
+    <itunes:image href="https://ultimatejordan.github.io/dead-media-vault/podcast/cover.jpg"/>
+    <itunes:category text="Arts">
+      <itunes:category text="Visual Arts"/>
+    </itunes:category>
+    <itunes:explicit>false</itunes:explicit>
+    <lastBuildDate>Wed, 07 Oct 2026 04:59:42 +0000</lastBuildDate>
+    <item>
+      <title>The Queen of the Pulps, the Butterfly Lady, and the Real Here Be Dragons</title>
+      <description>Episode 1. Three stories from the archives: Margaret Brundage, the woman who painted Weird Tales' most scandalous covers under a man's initials; Maria Sibylla Merian, who sailed to Suriname at age 52 to chase butterflies and invented ecological illustration; and the Lenox Globe — the only historical map on Earth that actually says 'here be dragons.'</description>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 +0000</pubDate>
+      <enclosure url="https://ultimatejordan.github.io/dead-media-vault/podcast/episodes/ep001-here-be-dragons.mp3" length="9813140" type="audio/mpeg"/>
+      <guid isPermaLink="false">vault-radio-ep001-here-be-dragons</guid>
+      <itunes:author>Dead Media Vault</itunes:author>
+      <itunes:summary>Episode 1. Three stories from the archives: Margaret Brundage, the woman who painted Weird Tales' most scandalous covers under a man's initials; Maria Sibylla Merian, who sailed to Suriname at age 52 to chase butterflies and invented ecological illustration; and the Lenox Globe — the only historical map on Earth that actually says 'here be dragons.'</itunes:summary>
+      <itunes:episodeType>full</itunes:episodeType>
+      <itunes:season>1</itunes:season>
+      <itunes:episode>1</itunes:episode>
+      <itunes:duration>10:13</itunes:duration>
+    </item>
+  </channel>
+</rss>
